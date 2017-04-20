@@ -1,0 +1,26 @@
+<div class="newsletter-user-dummy" id="newsletterDisplayed">[ekm:siteusername][/ekm:siteusername]</div>
+
+<div class="newsletter-modal" id="newsletterModal">
+  <div class="newsletter-modal__popup">
+    <div class="newsletter-modal__content">
+      <span id="newsletter-modal__close">X</span>
+      <div class="newsletter-modal__content-message">
+        Enter your email address below to sign up to our newsletter.
+      </div>
+
+      [ekm:newsletter]
+        output_start='';
+        output_item='[email][signup_button]';
+        output_end='';
+        textbox_attribute='maxlength="50"';
+        email_textbox_attribute='placeholder="Email Address" class="newsletter__content-text"';
+        signup_button_attribute='class="newsletter-modal__submit"';
+        on_submit='newsletterSubmit';
+        on_success='newsletterSuccess';
+      [/ekm:newsletter]
+      
+    </div>
+  </div>
+</div>
+
+<script src="/ekmps/shops/[ekm:siteusername][/ekm:siteusername]/resources/Other/newslettermodal.js" type="text/javascript"></script>

@@ -1,0 +1,60 @@
+.newsletter-dummy {
+  display: none;
+}
+
+.newsletter-modal {
+  position: fixed;
+  z-index: 9999;
+  padding-top: 10%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.newsletter-modal__popup {
+  background-color : #ffffff;
+  width: 25%;
+  margin: auto;
+}
+
+.newsletter-modal__submit {
+  padding : 10px 30px;
+  background-color: #000000;
+  text-align: center;
+  margin: 10px auto;
+  color: #ffffff;
+  border: 2px solid #000000;
+  display: block;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.newsletter-modal__submit:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.newsletter-modal__content {
+  width: 90%;
+  margin: auto;
+  padding: 10px 0;
+}
+
+.newsletter-modal__content-message {
+  font-size: 16px;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.newsletter__content-text {
+  width: 100%;
+  font-size: 16px;
+  text-align: center;
+}
+
+#newsletter-modal__close {
+  float: right;
+  font-size: 16px;
+  cursor: pointer;
+}
