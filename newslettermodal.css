@@ -3,6 +3,7 @@
 }
 
 .newsletter-modal {
+  display: none;
   position: fixed;
   z-index: 9999;
   padding-top: 10%;
@@ -53,7 +54,7 @@
   text-align: center;
 }
 
-#newsletter-modal__close {
+#newsletterModalClose {
   float: right;
   font-size: 16px;
   cursor: pointer;
