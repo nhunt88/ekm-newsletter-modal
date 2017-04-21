@@ -2,27 +2,36 @@
 
 <div class="newsletter-user-dummy" id="newsletterUser">[ekm:siteusername][/ekm:siteusername]</div>
 
-<div class="newsletter-modal" id="newsletterModal">
-  <div class="newsletter-modal__popup">
-    <div class="newsletter-modal__content">
-      <span id="newsletterModalClose">X</span>
-      <div class="newsletter-modal__content-message">
-        Enter your email address below to sign up to our newsletter.
-      </div>
-
-      [ekm:newsletter]
+<div class="newsletter-modal__popup" id="newsletterModal">
+  <div class="newsletter-modal__content">
+    <span id="newsletterModalClose">X</span>
+    <div class="newsletter-modal__content-message">
+      [ekm:element]
+        element_reference='newsletter-message';
+        edit_button='YES';
         output_start='';
-        output_item='[email][signup_button]';
         output_end='';
-        textbox_attribute='maxlength="50"';
-        email_textbox_attribute='placeholder="Email Address" class="newsletter__content-text"';
-        signup_utton_attribute='class="newsletter-modal__submit"';
-        on_submit='ekmnewsletterSubmit';
-        on_success='ekmnewsletterSuccess';
-      [/ekm:newsletter]
-
+        element_name_default='';
+        output_default='Enter your email addess below to sign up to our newsletter.';
+      [/ekm:element]
     </div>
+    [ekm:newsletter]
+      output_start='';
+      output_item='[email][signup_button]';
+      output_end='';
+      textbox_attribute='maxlength="50"';
+      email_textbox_attribute='placeholder="Email Address" class="newsletter__content-text"';
+      signupbutton_attribute='class="newsletter-modal__submit"';
+      on_submit='ekmnewsletterSubmit';
+      on_success='ekmnewsletterSuccess';
+    [/ekm:newsletter]
   </div>
 </div>
 
 <script src="/ekmps/shops/[ekm:siteusername][/ekm:siteusername]/resources/Other/newslettermodal.js" type="text/javascript"></script>
+<script type="text/javascript">
+ var newsletterOptions = {
+   delay: 28,
+   session: false
+ }
+</script>

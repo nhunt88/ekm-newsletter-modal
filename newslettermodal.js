@@ -4,19 +4,22 @@ var newsletterUser = document.getElementById('newsletterUser').innerHTML;
 
 var newsletterDisplayedKey = 'newsletterDisplayed' + newsletterUser;
 
-var newsletterDisplayedDelay = 28;
-
 //Element References
 var newsletterModal = document.getElementById('newsletterModal');
 var submitButton = document.getElementById('ekmresponseSignupButton');
 var newsletterClose = document.getElementById('newsletterModalClose');
 
-function CreateCookie(name, value, days) {
+function CreateCookieFixed(name, value, options) {
+  options.delay < 1 ? options.delay = 1 : null;
   var date = new Date();
-  date.setDate(date.getDate()+days);
+  date.setDate(date.getDate()+options.delay);
   var expires = '; expires=' + date + '; path=/';
 
   document.cookie = name + '=' + value + expires;
+}
+
+function CreateCookieSession(name, value) {
+  document.cookie = name + '=' + value +';';
 }
 
 function ReadCookie(name) {
@@ -35,18 +38,34 @@ function isNewsLetterDisplayed() {
   return ReadCookie(newsletterDisplayedKey) != null;
 }
 
-function setNewsletterDisplayed(val) {
-  var isDisplayed = val == null ? true : val;
-  CreateCookie(newsletterDisplayedKey, isDisplayed, newsletterDisplayedDelay);
+function setNewsletterDisplayed(options) {
+  var isDisplayed = true;
+  options.session == undefined || false ? CreateCookieSession(newsletterDisplayedKey, isDisplayed) : CreateCookieFixed(newsletterDisplayedKey, isDisplayed, newsletterOptions);
 }
 
-function setDisplayed() {
-  setNewsletterDisplayed()
+function newsletterSetDisplayed() {
+  setNewsletterDisplayed(newsletterOptions);
+  newsletterNotDisplayed();
+}
+
+function newsletterNotDisplayed() {
   newsletterModal.style.display = 'none';
+  window.removeEventListener('click', contentClick);
 }
 
-function newsletterDisplayedCheck(options) {
-  newsletterModal.style.display = isNewsLetterDisplayed() ? null : 'block';
+function newsletterIsDisplayed() {
+  newsletterModal.style.display = 'block';
+  window.addEventListener('click', contentClick);
+}
+
+function newsletterDisplayedCheck() {
+  isNewsLetterDisplayed() ? newsletterNotDisplayed() : newsletterIsDisplayed();
+}
+
+function contentClick(e) {
+  if (!newsletterModal.contains(e.target)) {
+    newsletterSetDisplayed();
+  }
 }
 
 window.ekmnewsletterSubmit = function (email) {
@@ -58,10 +77,10 @@ window.ekmnewsletterSubmit = function (email) {
 }
 
 window.ekmnewsletterSuccess = function () {
-  setTimeout(setDisplayed, 3000);
+  setTimeout(newsletterSetDisplayed, 3000);
 }
 
-newsletterClose.addEventListener('click', setDisplayed);
+newsletterClose.addEventListener('click', newsletterSetDisplayed);
 
 newsletterDisplayedCheck();
 
