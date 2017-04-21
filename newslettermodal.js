@@ -7,6 +7,7 @@ var newsletterDisplayedKey = "newsletterDisplayed" + newsletterUser;
 var newsletterDisplayedDelay = 28;
 
 //Element References
+var newsletterModal = document.getElementById('newsletterModal');
 
 function CreateCookie(name, value, days) {
   var date = new Date();
@@ -38,11 +39,11 @@ function setNewsletterDisplayed(val) {
 
 function setDisplayed() {
   setNewsletterDisplayed()
-  newsletter.style.display = 'none';
+  newsletterModal.style.display = 'none';
 }
 
 function newsletterDisplayedCheck(options) {
-  newsletter.style.display = isNewsLetterDisplayed() ? "none" : "block";
+  newsletterModal.style.display = isNewsLetterDisplayed() ? "none" : "block";
 }
 
 newsletterDisplayedCheck();
