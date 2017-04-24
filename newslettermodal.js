@@ -73,12 +73,20 @@
 
   function setNewsletterDisplayed(options) {
     var isDisplayed = true;
-    options.session == undefined || false ? CreateCookieSession(newsletterDisplayedKey, isDisplayed) : CreateCookieFixed(newsletterDisplayedKey, isDisplayed, options);
+    options.session == null || options.session === false ? 
+      CreateCookieSession(newsletterDisplayedKey, isDisplayed) : 
+      CreateCookieFixed(newsletterDisplayedKey, isDisplayed, options);
   }
 
   function newsletterSetDisplayed() {
-    setNewsletterDisplayed(newsletterOptions);
+    setNewsletterDisplayed(options);
     newsletterNotDisplayed();
+  }
+  
+  function contentClick(e) {
+    if (!newsletterModal.contains(e.target)) {
+      newsletterSetDisplayed();
+    }
   }
 
   function newsletterNotDisplayed() {
@@ -94,12 +102,6 @@
   function newsletterDisplayedCheck(opts) {
     options = Object.assign({}, defaultOptions, opts);
     isNewsLetterDisplayed() ? newsletterNotDisplayed() : newsletterIsDisplayed();
-  }
-
-  function contentClick(e) {
-    if (!newsletterModal.contains(e.target)) {
-      newsletterSetDisplayed();
-    }
   }
 
   function ekmnewsletterSubmit(email) {
