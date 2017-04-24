@@ -1,5 +1,8 @@
+<!-- Insert in the header of the theme below any other link tags for style sheets -->
 <link rel="stylesheet" type="text/css" href="/ekmps/shops/[ekm:siteusername][/ekm:siteusername]/resources/Styles/newslettermodal.css" />
 
+
+<!-- copy contents into the existing style on the theme layout, at the bottom -->
 <style>
   .newsletter-modal__popup {
     background-color: [ekm:colour]
@@ -63,6 +66,7 @@
   }
 </style>
 
+<!-- copy into the html of the theme after the opening <body>, before any content -->
 <div class="newsletter-user-dummy" id="newsletterUser">[ekm:siteusername][/ekm:siteusername]</div>
 
 <div class="newsletter-modal__popup" id="newsletterModal">
@@ -93,6 +97,11 @@
 
 <script src="/ekmps/shops/[ekm:siteusername][/ekm:siteusername]/resources/Other/newslettermodal.js" type="text/javascript"></script>
 <script type="text/javascript">
+/*
+   Options:
+   session - true or false, sets whether modal is displayed for each browser session or for a fixed length of time
+   delay - int value, sets the delay in days between the modal being shown when session is false
+*/
 var ekmNewsletterSubmit = window.ekmNewsletterModal.submit;
 var ekmNewsletterSuccess = window.ekmNewsletterModal.success;
  window.ekmNewsletterModal.check({
