@@ -1,5 +1,68 @@
 <link rel="stylesheet" type="text/css" href="/ekmps/shops/[ekm:siteusername][/ekm:siteusername]/resources/Styles/newslettermodal.css" />
 
+<style>
+  .newsletter-modal__popup {
+    background-color: [ekm:colour]
+                        colour_reference='Newsletter_Modal_BG';
+                        colour_name='Newsletter pop-up background';
+                        default_colour='#ffffff';
+                      [/ekm:colour];
+    color: [ekm:colour]
+             colour_reference='Newsletter_Modal_Text';
+             colour_name='Newsletter main text colour';
+             default_colour='#000000';
+           [/ekm:colour];
+  }
+
+  .newsletter__content-text {
+    background-color: [ekm:colour]
+                        colour_reference='Newsletter_Modal_Email_BG';
+                        colour_name='Newsletter email field background';
+                        default_colour='#ffffff';
+                      [/ekm:colour];
+    color: [ekm:colour]
+             colour_reference='Newsletter_Modal_Email_Text';
+             colour_name='Newsletter email text';
+             default_colour='#888888';
+          [/ekm:colour];
+    border: 1px solid [ekm:colour]
+                        colour_reference='Newsletter_Modal_Email_Text';
+                        default_colour='#888888';
+                      [/ekm:colour];
+  }
+
+  .newsletter-modal__submit {
+    background-color: [ekm:colour]
+                        colour_reference='Newsletter_Modal_Submit';
+                        colour_name='Newsletter submit background';
+                        colour_description='This inverts with the text colour on hover.';
+                        default_colour='#000000';
+                      [/ekm:colour];
+    border: 2px solid [ekm:colour]
+                        colour_reference='Newsletter_Modal_Submit';
+                        default_colour='#000000';
+                        [/ekm:colour];
+    color: [ekm:colour]
+             colour_reference='Newsletter_Modal_Submit_Text';
+             colour_name='Newsletter submit text';
+             default_colour='#ffffff';
+           [/ekm:colour];
+  }
+
+  .newsletter-modal__submit:hover {
+    background-color: [ekm:colour]
+                        colour_reference='Newsletter_Modal_Submit_Text';
+                        colour_name='Newsletter submit text';
+                        default_colour='#ffffff';
+                      [/ekm:colour];
+    color: [ekm:colour]
+             colour_reference='Newsletter_Modal_Submit';
+             colour_name='Newsletter submit background';
+             default_colour='#000000';
+           [/ekm:colour];
+  }
+</style>
+
 <div class="newsletter-user-dummy" id="newsletterUser">[ekm:siteusername][/ekm:siteusername]</div>
 
 <div class="newsletter-modal__popup" id="newsletterModal">
@@ -22,14 +85,16 @@
       textbox_attribute='maxlength="50"';
       email_textbox_attribute='placeholder="Email Address" class="newsletter__content-text"';
       signupbutton_attribute='class="newsletter-modal__submit"';
-      on_submit='window.ekmNewsletterModal.submit';
-      on_success='window.ekmNewsletterModal.success';
+      on_submit='ekmNewsletterSubmit';
+      on_success='ekmNewsletterSuccess';
     [/ekm:newsletter]
   </div>
 </div>
 
 <script src="/ekmps/shops/[ekm:siteusername][/ekm:siteusername]/resources/Other/newslettermodal.js" type="text/javascript"></script>
 <script type="text/javascript">
+var ekmNewsletterSubmit = window.ekmNewsletterModal.submit;
+var ekmNewsletterSuccess = window.ekmNewsletterModal.success;
  window.ekmNewsletterModal.check({
    delay: 28,
    session: false

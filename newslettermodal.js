@@ -29,7 +29,7 @@
   var newsletterModal = document.getElementById('newsletterModal');
   var submitButton = document.getElementById('ekmresponseSignupButton');
   var newsletterClose = document.getElementById('newsletterModalClose');
-  
+
   // 'Constants'
   var newsletterUser = newsletterUserEl.innerHTML;
   var newsletterDisplayedKey = 'newsletterDisplayed' + newsletterUser;
@@ -37,7 +37,7 @@
     delay: 28,
     session: false
   };
-  
+
   // Private Variables
   var options = Object.assign({}, defaultOptions);
 
@@ -63,7 +63,7 @@
       while (c.charAt(0)==' ') c = c.substring(1,c.length);
       if (c.indexOf(nameEquals) == 0) return c.substring(nameEquals.length,c.length);
     }
-    
+
     return null;
   }
 
@@ -73,16 +73,16 @@
 
   function setNewsletterDisplayed(options) {
     var isDisplayed = true;
-    options.session == null || options.session === false ? 
-      CreateCookieSession(newsletterDisplayedKey, isDisplayed) : 
-      CreateCookieFixed(newsletterDisplayedKey, isDisplayed, options);
+    options.session == null || options.session === false ?
+      CreateCookieFixed(newsletterDisplayedKey, isDisplayed, options) :
+      CreateCookieSession(newsletterDisplayedKey, isDisplayed);
   }
 
   function newsletterSetDisplayed() {
     setNewsletterDisplayed(options);
     newsletterNotDisplayed();
   }
-  
+
   function contentClick(e) {
     if (!newsletterModal.contains(e.target)) {
       newsletterSetDisplayed();
