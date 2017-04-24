@@ -1,0 +1,45 @@
+<!-- Insert in the header of the theme below any other link tags for style sheets -->
+<link rel="stylesheet" type="text/css" href="/ekmps/shops/[ekm:siteusername][/ekm:siteusername]/resources/Styles/newslettermodal.css" />
+
+<div class="newsletter-user-dummy" id="newsletterUser">[ekm:siteusername][/ekm:siteusername]</div>
+
+<div class="newsletter-modal__popup-mob" id="newsletterModal">
+  <div class="newsletter-modal__content">
+    <div class="newsletter-modal__content-message">
+      [ekm:element]
+        element_reference='newsletter-message';
+        edit_button='YES';
+        output_start='';
+        output_end='';
+        element_name_default='';
+        output_default='Enter your email addess below to sign up to our newsletter.';
+      [/ekm:element]
+    </div>
+    [ekm:newsletter]
+      output_start='';
+      output_item='[email][signup_button]';
+      output_end='';
+      textbox_attribute='maxlength="50"';
+      email_textbox_attribute='placeholder="Email Address" class="newsletter__content-text"';
+      signupbutton_attribute='class="newsletter-modal__submit newsletter-modal__submit-mob"';
+      on_submit='ekmNewsletterSubmit';
+      on_success='ekmNewsletterSuccess';
+    [/ekm:newsletter]
+    <div id="newsletterModalCloseMob" class="newsletter-modal__submit newsletter-modal__submit-mob">Close</div>
+  </div>
+</div>
+
+<script src="/ekmps/shops/[ekm:siteusername][/ekm:siteusername]/resources/Other/newslettermodal.js" type="text/javascript"></script>
+<script type="text/javascript">
+/*
+   Options:
+   session - true or false, sets whether modal is displayed for each browser session or for a fixed length of time
+   delay - int value, sets the delay in days between the modal being shown when session is false
+*/
+var ekmNewsletterSubmit = window.ekmNewsletterModal.submit;
+var ekmNewsletterSuccess = window.ekmNewsletterModal.success;
+ window.ekmNewsletterModal.check({
+   delay: 28,
+   session: false
+ });
+</script>

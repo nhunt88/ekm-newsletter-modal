@@ -47,10 +47,31 @@
   width: 100%;
   font-size: 16px;
   text-align: center;
+  padding: 0;
 }
 
 #newsletterModalClose {
   float: right;
   font-size: 16px;
   cursor: pointer;
+}
+
+/* Mobile */
+.newsletter-modal__popup-mob {
+  display: none;
+  background-color: #ffffff;
+  width: 100%;
+  border: 1px solid #000000;
+  position: fixed;
+  z-index: 9999;
+}
+
+.newsletter-modal__submit-mob {
+  width: 100%;
+  padding: 10px 0;
+  box-sizing: border-box;
+  float: none!important;
+  -webkit-appearance: none;
+  font-size: 11px!important;
+  border-radius: 5px;
 }
