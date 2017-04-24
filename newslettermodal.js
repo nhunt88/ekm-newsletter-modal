@@ -119,9 +119,9 @@
   newsletterClose.addEventListener('click', newsletterSetDisplayed);
 
   window.ekmNewsletterModal = {
-    Submit: ekmnewsletterSubmit,
-    Success: ekmnewsletterSuccess,
-    Check: newsletterDisplayedCheck
+    submit: ekmnewsletterSubmit,
+    success: ekmnewsletterSuccess,
+    check: newsletterDisplayedCheck
   };
 
 })();
