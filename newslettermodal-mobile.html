@@ -1,6 +1,71 @@
 <!-- Insert in the header of the theme below any other link tags for style sheets -->
 <link rel="stylesheet" type="text/css" href="/ekmps/shops/[ekm:siteusername][/ekm:siteusername]/resources/Styles/newslettermodal.css" />
 
+<!-- copy contents into the existing style on the theme layout, at the bottom -->
+<style>
+  .newsletter-modal__popup-mob {
+    background-color: [ekm:colour]
+                        colour_reference='Newsletter_Modal_BG';
+                        colour_name='Newsletter pop-up background';
+                        default_colour='#ffffff';
+                      [/ekm:colour];
+    color: [ekm:colour]
+             colour_reference='Newsletter_Modal_Text';
+             colour_name='Newsletter main text colour';
+             default_colour='#000000';
+           [/ekm:colour];
+  }
+
+  .newsletter__content-text {
+    background-color: [ekm:colour]
+                        colour_reference='Newsletter_Modal_Email_BG';
+                        colour_name='Newsletter email field background';
+                        default_colour='#ffffff';
+                      [/ekm:colour];
+    color: [ekm:colour]
+             colour_reference='Newsletter_Modal_Email_Text';
+             colour_name='Newsletter email text';
+             default_colour='#888888';
+          [/ekm:colour];
+    border: 1px solid [ekm:colour]
+                        colour_reference='Newsletter_Modal_Email_Text';
+                        default_colour='#888888';
+                      [/ekm:colour];
+  }
+
+  .newsletter-modal__submit {
+    background-color: [ekm:colour]
+                        colour_reference='Newsletter_Modal_Submit';
+                        colour_name='Newsletter submit background';
+                        colour_description='This inverts with the text colour on hover.';
+                        default_colour='#000000';
+                      [/ekm:colour];
+    border: 2px solid [ekm:colour]
+                        colour_reference='Newsletter_Modal_Submit';
+                        default_colour='#000000';
+                        [/ekm:colour];
+    color: [ekm:colour]
+             colour_reference='Newsletter_Modal_Submit_Text';
+             colour_name='Newsletter submit text';
+             default_colour='#ffffff';
+           [/ekm:colour];
+  }
+
+  .newsletter-modal__submit:hover {
+    background-color: [ekm:colour]
+                        colour_reference='Newsletter_Modal_Submit_Text';
+                        colour_name='Newsletter submit text';
+                        default_colour='#ffffff';
+                      [/ekm:colour];
+    color: [ekm:colour]
+             colour_reference='Newsletter_Modal_Submit';
+             colour_name='Newsletter submit background';
+             default_colour='#000000';
+           [/ekm:colour];
+  }
+</style>
+
+<!-- copy into the html of the theme after the opening <body>, before any content -->
 <div class="newsletter-user-dummy" id="newsletterUser">[ekm:siteusername][/ekm:siteusername]</div>
 
 <div class="newsletter-modal__popup-mob" id="newsletterModal">
@@ -12,7 +77,7 @@
         output_start='';
         output_end='';
         element_name_default='';
-        output_default='Enter your email addess below to sign up to our newsletter.';
+        output_default='Enter your email address below to sign up to our newsletter.';
       [/ekm:element]
     </div>
     [ekm:newsletter]
@@ -25,7 +90,7 @@
       on_submit='ekmNewsletterSubmit';
       on_success='ekmNewsletterSuccess';
     [/ekm:newsletter]
-    <div id="newsletterModalCloseMob" class="newsletter-modal__submit newsletter-modal__submit-mob">Close</div>
+    <div id="newsletterModalClose" class="newsletter-modal__submit newsletter-modal__submit-mob">Close</div>
   </div>
 </div>
 
